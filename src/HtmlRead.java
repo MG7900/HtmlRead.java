@@ -6,24 +6,37 @@ import java.util.Scanner;
 
 public class HtmlRead {
 
-    public static void main(String[] args) {
-        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+    public String user_string;
+    public String user_link;
 
-        System.out.println("User Designated Link: ");
-        String user_link = myObj.nextLine();
-        System.out.println("User Designated String Filter: ");
-        String user_string = myObj.nextLine();  // Read user input
-        System.out.println("User Designated Link: " + user_link);
-        System.out.println("User Designated String Filter: " + user_string);  // Output user input
-        HtmlRead html = new HtmlRead(user_link, user_string);
+    public static void main(String[] args) {
+
+        HtmlRead html = new HtmlRead();
+        while(true) {
+            html.read_inputs();
+            //todo: add the
+        }
+        //gotta have html. cause its an object of it
+
     }
 
-    public HtmlRead(String url_link, String user_string) {
+    public void read_inputs(){
+        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+        System.out.println("User Designated Link: ");
+        user_link = myObj.nextLine();
+        System.out.println("User Designated String Filter: ");
+        user_string = myObj.nextLine();  // Read user input
+        System.out.println("User Designated Link: " + user_link);
+        System.out.println("User Designated String Filter: " + user_string);  // Output user input
+        myObj.close();
+    }
+
+    public HtmlRead() {
 
         try {
             System.out.println();
             System.out.print("hello \n");
-            URL url = new URL(url_link);
+            URL url = new URL(user_link);
 
             URLConnection urlc = url.openConnection();
             urlc.setRequestProperty("User-Agent", "Mozilla 5.0 (Windows; U; " + "Windows NT 5.1; en-US; rv:1.8.0.11) ");
@@ -48,7 +61,7 @@ public class HtmlRead {
                 for (int x = 0; x < line.length(); x++) {
                     int start_index = line.indexOf("https:", x);
 
-                    if(start_index == -1){
+                    if(start_index == -1){https://www.youtube.com/watch?v=4ixsE3idyzE&list=RDMM&index=3ski
                         break;
                     }
 
@@ -68,6 +81,9 @@ public class HtmlRead {
         } catch(Exception ex) {
             System.out.println(ex);
         }
+
+    }
+    public void HtmlRead(){
 
     }
 
