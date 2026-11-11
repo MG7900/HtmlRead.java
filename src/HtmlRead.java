@@ -14,8 +14,9 @@ public class HtmlRead {
         HtmlRead html = new HtmlRead();
         while(true) {
             html.read_inputs();
-            //todo: add the
+            html.htmlRead();
         }
+
         //gotta have html. cause its an object of it
 
     }
@@ -28,10 +29,9 @@ public class HtmlRead {
         user_string = myObj.nextLine();  // Read user input
         System.out.println("User Designated Link: " + user_link);
         System.out.println("User Designated String Filter: " + user_string);  // Output user input
-        myObj.close();
     }
 
-    public HtmlRead() {
+    public void htmlRead() {
 
         try {
             System.out.println();
@@ -53,28 +53,40 @@ public class HtmlRead {
                 int link_count = 0;
 
                 for(int x = 0; x < line.length() - 1; x++) {
+                    //System.out.println("look for link_count");
                     if (line.charAt(x) == '/' && line.charAt(x+1) == '/') {
                         link_count = link_count + 1;
                     }
                 }
 
                 for (int x = 0; x < line.length(); x++) {
-                    int start_index = line.indexOf("https:", x);
+                    //System.out.println("start reading indexes");
+                    int start_index = line.indexOf("href=" + "\"", x);
+                    //fix this isssue
 
-                    if(start_index == -1){https://www.youtube.com/watch?v=4ixsE3idyzE&list=RDMM&index=3ski
+                    if(start_index == -1){
                         break;
                     }
+                    //System.out.println("hi");
+                    //the code DID NOT GET to the "hi" line; ergo, the error lies above
 
                     end_index = line.indexOf('"',start_index);
 
                     if(end_index != -1){
+                        //System.out.println("end_index ！= -1");
                         String new_substring = line.substring(start_index, end_index);
-                        System.out.println(new_substring);
+                        if(new_substring.contains(user_string)) {
+                            System.out.println(new_substring);
+                        } else{
+                            continue;
+                        }
                         x = end_index;
                     }
                 }
 
                 //todo: add a specified String that the user can input into the textbox below to act as a specified String
+                //todo: how to make partial links not partial anymore, do some research!
+                //todo: debug the user_specified_string issue
             }
             reader.close();
 
@@ -83,8 +95,4 @@ public class HtmlRead {
         }
 
     }
-    public void HtmlRead(){
-
-    }
-
 }
