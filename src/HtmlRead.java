@@ -61,7 +61,7 @@ public class HtmlRead {
 
                 for (int x = 0; x < line.length(); x++) {
                     //System.out.println("start reading indexes");
-                    int start_index = line.indexOf("href=" + "\"", x);
+                    int start_index = line.indexOf("href=\"", x);
                     //fix this isssue
 
                     if(start_index == -1){
@@ -70,23 +70,25 @@ public class HtmlRead {
                     //System.out.println("hi");
                     //the code DID NOT GET to the "hi" line; ergo, the error lies above
 
-                    end_index = line.indexOf('"',start_index);
+                    end_index = line.indexOf('"',start_index + 6);
 
                     if(end_index != -1){
                         //System.out.println("end_index ！= -1");
-                        String new_substring = line.substring(start_index, end_index);
+                        String new_substring = line.substring(start_index + 6, end_index);
                         if(new_substring.contains(user_string)) {
                             System.out.println(new_substring);
-                        } else{
-                            continue;
                         }
-                        x = end_index;
+                        x = end_index + 1;
+                    } else {
+                        break;
                     }
                 }
 
-                //todo: add a specified String that the user can input into the textbox below to act as a specified String
+                //todo: add a specified String that the user can input into the textbox below to act as a specified String✅
                 //todo: how to make partial links not partial anymore, do some research!
-                //todo: debug the user_specified_string issue
+                //todo: fix partial link issue with reference to this website below:
+                //todo: https://stackoverflow.com/questions/29391965/what-is-partial-linking-in-gnu-linker
+                //todo: debug the user_specified_string issue✅
             }
             reader.close();
 
