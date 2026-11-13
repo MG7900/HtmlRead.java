@@ -61,8 +61,8 @@ public class HtmlRead {
 
                 for (int x = 0; x < line.length(); x++) {
                     //System.out.println("start reading indexes");
-                    int start_index = line.indexOf("href=\"", x);
-                    //fix this isssue
+                    int start_index = line.indexOf("href=", x);
+                    //fix this isssue✅
 
                     if(start_index == -1){
                         break;
@@ -71,6 +71,8 @@ public class HtmlRead {
                     //the code DID NOT GET to the "hi" line; ergo, the error lies above
 
                     end_index = line.indexOf('"',start_index + 6);
+                    //todo: why does the code work when start_index is set to 6 and not when it is set to 5
+                    //todo: make it look for single quotation marks too
 
                     if(end_index != -1){
                         //System.out.println("end_index ！= -1");
