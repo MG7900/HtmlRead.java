@@ -110,4 +110,5 @@ public class HtmlRead {
  * All of the links on the page are found and printed✅
  * The user can re run the program with out hitting the play button✅
  * Some other spicy extension!
+ *
  */
