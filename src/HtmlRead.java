@@ -44,20 +44,34 @@ public class HtmlRead {
             BufferedReader reader = new BufferedReader(
                     new InputStreamReader(urlc.getInputStream())
             );
+
+
+
             String line;
+
+            //todo: add sufficient error messages
+            //todo: add programmer specificed option. e.g. if programmer specified string = blank,
 
             while ( (line = reader.readLine()) != null ) {
                 //find if there are multiple https in one line
                 //use the string challenges
                 int end_index = 0;
                 int link_count = 0;
+                int count_index_Of = 0;
+                int index = 0;
 
-                for(int x = 0; x < line.length() - 1; x++) {
+                String href_finder = "href";
+
+            //todo: check filter through multiple lines
+
+
+
+                //for(int x = 0; x < line.length() - 1; x++) {
                     //System.out.println("look for link_count");
-                    if (line.charAt(x) == '/' && line.charAt(x+1) == '/') {
+                    if (line.contains(href) ) {
                         link_count = link_count + 1;
                     }
-                }
+                //}
 
                 for (int x = 0; x < line.length(); x++) {
                     //System.out.println("start reading indexes");
@@ -85,13 +99,8 @@ public class HtmlRead {
                         break;
                     }
                 }
-
-                //todo: does requirement want me to change all partial links to actual links? w
-
                 //todo: add a specified String that the user can input into the textbox below to act as a specified String✅
-                //todo: how to make partial links not partial anymore, do some research!
-                //todo: fix partial link issue with reference to this website below:
-                //todo: https://stackoverflow.com/questions/29391965/what-is-partial-linking-in-gnu-linker
+                //todo: fix partial link issue with reference to this website below:❌(no need for this)
                 //todo: debug the user_specified_string issue✅
             }
             reader.close();
