@@ -86,6 +86,8 @@ public class HtmlRead {
                     }
                 }
 
+                //todo: does requirement want me to change all partial links to actual links? w
+
                 //todo: add a specified String that the user can input into the textbox below to act as a specified String✅
                 //todo: how to make partial links not partial anymore, do some research!
                 //todo: fix partial link issue with reference to this website below:
@@ -100,3 +102,12 @@ public class HtmlRead {
 
     }
 }
+
+/***
+ * Correctly handles and prints multiple links in the same HTML line✅
+ * The user can input whatever link they want✅
+ * The user can dictate the string that filters the links✅
+ * All of the links on the page are found and printed✅
+ * The user can re run the program with out hitting the play button✅
+ * Some other spicy extension!
+ */
