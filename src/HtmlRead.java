@@ -8,6 +8,7 @@ public class HtmlRead {
 
     public String user_string;
     public String user_link;
+    public String programmer_designated_string = "";
 
     public static void main(String[] args) {
 
@@ -25,10 +26,16 @@ public class HtmlRead {
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         System.out.println("User Designated Link: ");
         user_link = myObj.nextLine();
-        System.out.println("User Designated String Filter: ");
-        user_string = myObj.nextLine();  // Read user input
+        if(programmer_designated_string != ""){
+            System.out.println("User Designated String Filter: " + programmer_designated_string);
+            user_string = programmer_designated_string;
+        }else {
+            System.out.println("User Designated String Filter: ");
+            user_string = myObj.nextLine();  // Read user input
+            System.out.println("User Designated String Filter: " + user_string);
+        }
         System.out.println("User Designated Link: " + user_link);
-        System.out.println("User Designated String Filter: " + user_string);  // Output user input
+          // Output user input
     }
 
     public void htmlRead() {
@@ -50,7 +57,7 @@ public class HtmlRead {
             String line;
 
             //todo: add sufficient error messages
-            //todo: add programmer specificed option. e.g. if programmer specified string = blank,
+            //todo: add programmer specificed option. e.g. if programmer specified string = blank,✅
 
             while ( (line = reader.readLine()) != null ) {
                 //find if there are multiple https in one line
@@ -65,13 +72,13 @@ public class HtmlRead {
             //todo: check filter through multiple lines
 
 
-
-                //for(int x = 0; x < line.length() - 1; x++) {
-                    //System.out.println("look for link_count");
-                    if (line.contains(href) ) {
-                        link_count = link_count + 1;
-                    }
-                //}
+//                for(int x = 0; x < line.length() - 1; x++) {
+//                    //System.out.println("look for link_count");
+//                    if (line.charAt(x) == '/' && line.charAt(x+1) == '/') {
+//                        link_count = link_count + 1;
+//                    }
+//                }
+// the above commented out code is not needed because the below for-loop
 
                 for (int x = 0; x < line.length(); x++) {
                     //System.out.println("start reading indexes");
