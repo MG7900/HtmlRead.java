@@ -63,13 +63,13 @@ public class HtmlRead {
                 //find if there are multiple https in one line
                 //use the string challenges
                 int end_index = 0;
-                int link_count = 0;
-                int count_index_Of = 0;
-                int index = 0;
+//                int link_count = 0;
+//                int count_index_Of = 0;
+//                int index = 0;
 
-                String href_finder = "href";
+                //String href_finder = "href";
 
-            //todo: check filter through multiple lines
+            //todo: check filter through multiple lines✅
 
 
 //                for(int x = 0; x < line.length() - 1; x++) {
@@ -92,8 +92,9 @@ public class HtmlRead {
                     //the code DID NOT GET to the "hi" line; ergo, the error lies above
 
                     end_index = line.indexOf('"',start_index + 6);
-                    //todo: why does the code work when start_index is set to 6 and not when it is set to 5
+                    //todo: why does the code work when start_index is set to 6 and not when it is set to 5✅
                     //todo: make it look for single quotation marks too
+                    //todo: add to index the index right after href=, to see it that is single quotes or double quotes, then check end_index accordingly to that
 
                     if(end_index != -1){
                         //System.out.println("end_index ！= -1");
@@ -115,7 +116,6 @@ public class HtmlRead {
         } catch(Exception ex) {
             System.out.println(ex);
         }
-
     }
 }
 
