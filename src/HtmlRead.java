@@ -49,9 +49,9 @@ public class HtmlRead {
         System.out.println("User Designated Link: ");
         user_link = myObj.nextLine();
         if(programmer_designated_string != ""){
-            System.out.println("User Designated String Filter: " + programmer_designated_string);
+            System.out.println("Programmer Designated String Filter: " + programmer_designated_string);
             user_string = programmer_designated_string;
-        }else {
+        } else {
             System.out.println("User Designated String Filter: ");
             user_string = myObj.nextLine();  // Read user input
             System.out.println("User Designated String Filter: " + user_string);
@@ -94,15 +94,6 @@ public class HtmlRead {
                 //String href_finder = "href";
 
             //todo: check filter through multiple lines✅
-
-
-//                for(int x = 0; x < line.length() - 1; x++) {
-//                    //System.out.println("look for link_count");
-//                    if (line.charAt(x) == '/' && line.charAt(x+1) == '/') {
-//                        link_count = link_count + 1;
-//                    }
-//                }
-// the above commented out code is not needed because the below for-loop
 
                 for (int x = 0; x < line.length(); x++) {
                     //System.out.println("start reading indexes");
