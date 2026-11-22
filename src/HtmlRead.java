@@ -66,13 +66,16 @@ public class HtmlRead {
             System.out.println();
             System.out.print("hello \n");
             URL url = new URL(user_link);
+            //Takes the plain text string you typed and validates/converts it into an official Java URL object
 
             URLConnection urlc = url.openConnection();
+            //communication channel to that website's server
             urlc.setRequestProperty("User-Agent", "Mozilla 5.0 (Windows; U; " + "Windows NT 5.1; en-US; rv:1.8.0.11) ");
-
+            //This line sets an HTTP request header that disguises Java program as a regular web browser (Mozilla on Windows) so websites don't block it as a bot
             BufferedReader reader = new BufferedReader(
                     new InputStreamReader(urlc.getInputStream())
             );
+            //converts raw bytes into readable text characters, buffers the text so that the program reads it one line at a time
             System.out.println("Valid Link!");
 
             String line;
