@@ -113,7 +113,7 @@ public class HtmlRead {
                     //the code DID NOT GET to the "hi" line; ergo, the error lies above
 
                     if(line.charAt(start_index + 5) == '\''){
-                        end_index = line.indexOf(" '", start_index + 6);
+                        end_index = line.indexOf("'", start_index + 6);
                     } else if (line.charAt(start_index + 5) == '\"') {
                         end_index = line.indexOf('"', start_index + 6);
                     }
@@ -128,7 +128,7 @@ public class HtmlRead {
                             System.out.println(new_substring);
                             found_match = true;
                         }
-                        x = end_index + 1;
+                        x = end_index;
                     } else {
                         break;
                     }
